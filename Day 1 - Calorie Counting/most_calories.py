@@ -1,6 +1,3 @@
-import re
-
-
 def sum_calories(calories: str) -> int:
     if not calories:
         return 0
@@ -10,9 +7,8 @@ def sum_calories(calories: str) -> int:
     return sum(cleared_list)
 
 
-def most_calories(elves_inventories: str):
-    elves_regex = re.compile(r"\n\s*\n")
-    calories_by_elves = elves_regex.split(elves_inventories)
+def most_calories(elves_inventories: str) -> int:
+    calories_by_elves = elves_inventories.replace(" ", "").split("\n\n")
 
     return max(map(sum_calories, calories_by_elves))
 
