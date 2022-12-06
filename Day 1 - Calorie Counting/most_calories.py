@@ -10,9 +10,14 @@ def sum_calories(calories: str) -> int:
     return sum(cleared_list)
 
 
-def most_calories(input: str):
-
+def most_calories(elves_inventories: str):
     elves_regex = re.compile(r"\n\s*\n")
-    calories_by_elves = elves_regex.split(input)
+    calories_by_elves = elves_regex.split(elves_inventories)
 
     return max(map(sum_calories, calories_by_elves))
+
+
+if __name__ == "__main__":
+    with open("input.txt", "r") as file:
+        input_text = file.read()
+        print(most_calories(input_text))
