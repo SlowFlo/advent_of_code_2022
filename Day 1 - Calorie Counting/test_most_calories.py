@@ -36,6 +36,26 @@ def test_several_inventories_return_the_max():
     assert most_calories(input_str) == 700
 
 
+def test_lots_of_inventories_return_the_max():
+    input_str = """
+        1000
+        2000
+        3000
+
+        4000
+        
+        5000
+        6000
+        
+        7000
+        8000
+        9000
+        
+        10000
+        """
+    assert most_calories(input_str) == 24000
+
+
 def test_get_the_sum_of_the_first_three_inventories():
     input_str = """
         1000
