@@ -7,10 +7,13 @@ def sum_calories(calories: str) -> int:
     return sum(cleared_list)
 
 
-def most_calories(elves_inventories: str) -> int:
+def sum_each_inventory(elves_inventories: str) -> list[int]:
     calories_by_elves = elves_inventories.replace(" ", "").split("\n\n")
+    return list(map(sum_calories, calories_by_elves))
 
-    return max(map(sum_calories, calories_by_elves))
+
+def most_calories(elves_inventories: str) -> int:
+    return max(sum_each_inventory(elves_inventories))
 
 
 if __name__ == "__main__":
