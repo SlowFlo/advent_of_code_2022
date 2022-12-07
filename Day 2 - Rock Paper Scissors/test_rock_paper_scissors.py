@@ -2,8 +2,10 @@ from rock_paper_scissors import RockPaperScissors
 
 
 def test_predict_win_correctly():
-    assert RockPaperScissors.is_a_win("A", "Y")
+    my_game = RockPaperScissors("A Y")
+    assert my_game.is_a_win()
 
 
 def test_predict_loose_correctly():
-    assert not RockPaperScissors.is_a_win("B", "X")
+    my_game = RockPaperScissors("B X")
+    assert not my_game.is_a_win()

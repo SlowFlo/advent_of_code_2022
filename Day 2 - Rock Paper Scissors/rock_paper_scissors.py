@@ -1,6 +1,8 @@
 class RockPaperScissors:
-    @staticmethod
-    def is_a_win(opponent_shape: str, my_shape: str) -> bool:
-        if opponent_shape == "A":
+    def __init__(self, strategy_guide: str):
+        self.strategy_guide = strategy_guide
+
+    def is_a_win(self) -> bool:
+        if self.strategy_guide.startswith("A"):
             return True
         return False
