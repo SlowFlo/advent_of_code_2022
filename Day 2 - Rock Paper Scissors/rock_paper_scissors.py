@@ -17,9 +17,8 @@ class RockPaperScissors:
             return True
         if my_shape == Shape.SCISSORS and opponent_shape == Shape.PAPER:
             return True
-        if my_shape == Shape.PAPER and opponent_shape == Shape.ROCK:
-            return True
-        return False
+
+        return my_shape == Shape.PAPER and opponent_shape == Shape.ROCK
 
     def outcome(self) -> str:
         shapes = self.strategy_guide.split()
@@ -29,7 +28,4 @@ class RockPaperScissors:
         if opponent_shape == my_shape:
             return "draw"
 
-        if self._has_my_shape_win(my_shape, opponent_shape):
-            return "win"
-
-        return "loss"
+        return "win" if self._has_my_shape_win(my_shape, opponent_shape) else "loss"
