@@ -5,6 +5,9 @@ def test_predict_win_correctly():
     my_game = RockPaperScissors("A Y")
     assert my_game.outcome() == "win"
 
+    my_game = RockPaperScissors("B Z")
+    assert my_game.outcome() == "win"
+
 
 def test_predict_loss_correctly():
     my_game = RockPaperScissors("B X")
