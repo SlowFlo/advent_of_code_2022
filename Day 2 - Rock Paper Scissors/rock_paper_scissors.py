@@ -2,7 +2,9 @@ class RockPaperScissors:
     def __init__(self, strategy_guide: str):
         self.strategy_guide = strategy_guide
 
-    def is_a_win(self) -> bool:
+    def outcome(self) -> str:
         if self.strategy_guide.startswith("A"):
-            return True
-        return False
+            return "win"
+        if self.strategy_guide.startswith("B"):
+            return "loss"
+        return "draw"
