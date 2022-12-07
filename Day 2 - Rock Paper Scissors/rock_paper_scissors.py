@@ -29,3 +29,22 @@ class RockPaperScissors:
             return "draw"
 
         return "win" if self._has_my_shape_win(my_shape, opponent_shape) else "loss"
+
+    def score(self) -> int:
+        shapes = self.strategy_guide.split()
+        my_shape = Shape(shapes[1])
+
+        score = 0
+        if my_shape == Shape.ROCK:
+            score += 1
+        elif my_shape == Shape.PAPER:
+            score += 2
+        elif my_shape == Shape.SCISSORS:
+            score += 3
+
+        if self.outcome() == "draw":
+            score += 3
+        elif self.outcome() == "win":
+            score += 6
+
+        return score

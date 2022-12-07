@@ -31,3 +31,12 @@ def test_has_my_shape_win():
     assert not RockPaperScissors._has_my_shape_win(Shape.SCISSORS, Shape.ROCK)
     assert RockPaperScissors._has_my_shape_win(Shape.SCISSORS, Shape.PAPER)
     assert not RockPaperScissors._has_my_shape_win(Shape.SCISSORS, Shape.SCISSORS)
+
+
+def test_calculate_simple_score():
+    my_game = RockPaperScissors("A Y")
+    assert my_game.score() == 8
+    my_game = RockPaperScissors("B X")
+    assert my_game.score() == 1
+    my_game = RockPaperScissors("C Z")
+    assert my_game.score() == 6
