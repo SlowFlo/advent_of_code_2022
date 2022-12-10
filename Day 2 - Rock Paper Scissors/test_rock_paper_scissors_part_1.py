@@ -1,4 +1,4 @@
-from rock_paper_scissors import RockPaperScissors, Shape
+from rock_paper_scissors_part_1 import RockPaperScissors, Shape
 
 
 def test_outcome_win_is_correct():
