@@ -1,4 +1,4 @@
-from rock_paper_scissors_part_2 import RockPaperScissors, Shape, Goal
+from rock_paper_scissors import RockPaperScissors, Shape, Goal
 
 
 def test_goal_is_correct():
