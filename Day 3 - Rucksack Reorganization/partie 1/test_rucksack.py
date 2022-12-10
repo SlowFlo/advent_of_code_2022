@@ -56,7 +56,7 @@ def test_get_priority():
 
 
 def test_get_total_priority():
-    my_rucksack = RucksackManager(
+    my_rucksack_manager = RucksackManager(
         """vJrwpWtwJgWrhcsFMMfFFhFp
 jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
 PmmdzqPrVvPwwTWBwg
@@ -65,4 +65,4 @@ ttgJtRGJQctTZtZT
 CrZsJsPPZsGzwwsLwLmpwMDw"""
     )
 
-    assert my_rucksack.get_total_priority() == 157
+    assert my_rucksack_manager.get_total_priority() == 157
