@@ -36,3 +36,10 @@ class RucksackManager:
 
     def get_total_priority(self) -> int:
         return sum(map(Rucksack.get_priority, self.rucksacks))
+
+
+if __name__ == "__main__":
+    with open("../input.txt", "r") as file:
+        input_text = file.read()
+        my_rucksack_manager = RucksackManager(input_text)
+        print(f"The total priority is {my_rucksack_manager.get_total_priority()}.")
