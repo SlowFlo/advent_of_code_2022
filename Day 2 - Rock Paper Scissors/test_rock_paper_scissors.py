@@ -2,21 +2,16 @@ from rock_paper_scissors import RockPaperScissors, Shape
 
 
 def test_outcome_win_is_correct():
-    my_game = RockPaperScissors("A Y")
-    assert my_game.outcome() == "win"
-
-    my_game = RockPaperScissors("B Z")
-    assert my_game.outcome() == "win"
+    assert RockPaperScissors.outcome(Shape("A"), Shape("Y")) == "win"
+    assert RockPaperScissors.outcome(Shape("B"), Shape("Z")) == "win"
 
 
 def test_outcome_loss_is_correct():
-    my_game = RockPaperScissors("B X")
-    assert my_game.outcome() == "loss"
+    assert RockPaperScissors.outcome(Shape("B"), Shape("X")) == "loss"
 
 
 def test_outcome_draw_is_correct():
-    my_game = RockPaperScissors("C Z")
-    assert my_game.outcome() == "draw"
+    assert RockPaperScissors.outcome(Shape("C"), Shape("Z")) == "draw"
 
 
 def test_has_my_shape_win():
@@ -34,9 +29,15 @@ def test_has_my_shape_win():
 
 
 def test_calculate_simple_score():
-    my_game = RockPaperScissors("A Y")
-    assert my_game.score() == 8
-    my_game = RockPaperScissors("B X")
-    assert my_game.score() == 1
-    my_game = RockPaperScissors("C Z")
-    assert my_game.score() == 6
+    assert RockPaperScissors._score_by_round("A Y") == 8
+    assert RockPaperScissors._score_by_round("B X") == 1
+    assert RockPaperScissors._score_by_round("C Z") == 6
+
+
+def test_calculate_complex_score():
+    strategy_guide = """A Y
+    B X
+    C Z"""
+
+    my_game = RockPaperScissors(strategy_guide)
+    assert my_game.total_score() == 15

@@ -20,19 +20,11 @@ class RockPaperScissors:
 
         return my_shape == Shape.PAPER and opponent_shape == Shape.ROCK
 
-    def outcome(self) -> str:
-        shapes = self.strategy_guide.split()
-        opponent_shape = Shape(shapes[0])
-        my_shape = Shape(shapes[1])
-
-        if opponent_shape == my_shape:
-            return "draw"
-
-        return "win" if self._has_my_shape_win(my_shape, opponent_shape) else "loss"
-
-    def score(self) -> int:
-        shapes = self.strategy_guide.split()
-        my_shape = Shape(shapes[1])
+    @classmethod
+    def _score_by_round(cls, shapes: str) -> int:
+        shapes_list = shapes.split()
+        opponent_shape = Shape(shapes_list[0])
+        my_shape = Shape(shapes_list[1])
 
         score = 0
         if my_shape == Shape.ROCK:
@@ -42,9 +34,23 @@ class RockPaperScissors:
         elif my_shape == Shape.SCISSORS:
             score += 3
 
-        if self.outcome() == "draw":
+        round_outcome = cls.outcome(opponent_shape, my_shape)
+
+        if round_outcome == "draw":
             score += 3
-        elif self.outcome() == "win":
+        elif round_outcome == "win":
             score += 6
 
         return score
+
+    @classmethod
+    def outcome(cls, opponent_shape: Shape, my_shape: Shape) -> str:
+        if opponent_shape == my_shape:
+            return "draw"
+
+        return "win" if cls._has_my_shape_win(my_shape, opponent_shape) else "loss"
+
+    def total_score(self) -> int:
+        strategy_guide_lines = self.strategy_guide.splitlines()
+
+        return sum(map(self._score_by_round, strategy_guide_lines))
