@@ -27,3 +27,12 @@ class Rucksack:
         if ord("a") <= ord(duplicate) <= ord("z"):
             return ord(duplicate) - ord("a") + 1
         return ord(duplicate) - ord("A") + 27
+
+
+class RucksackManager:
+    def __init__(self, rucksacks_items: str):
+        rucksacks_list = rucksacks_items.splitlines()
+        self.rucksacks = map(Rucksack, rucksacks_list)
+
+    def get_total_priority(self) -> int:
+        return sum(map(Rucksack.get_priority, self.rucksacks))

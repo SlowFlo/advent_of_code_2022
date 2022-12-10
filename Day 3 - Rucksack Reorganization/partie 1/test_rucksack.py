@@ -1,4 +1,4 @@
-from rucksack import Rucksack
+from rucksack import Rucksack, RucksackManager
 
 
 def test_get_compartments_content():
@@ -53,3 +53,16 @@ def test_get_priority():
 
     my_rucksack = Rucksack("CrZsJsPPZsGzwwsLwLmpwMDw")
     assert my_rucksack.get_priority() == 19
+
+
+def test_get_total_priority():
+    my_rucksack = RucksackManager(
+        """vJrwpWtwJgWrhcsFMMfFFhFp
+jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
+PmmdzqPrVvPwwTWBwg
+wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
+ttgJtRGJQctTZtZT
+CrZsJsPPZsGzwwsLwLmpwMDw"""
+    )
+
+    assert my_rucksack.get_total_priority() == 157
