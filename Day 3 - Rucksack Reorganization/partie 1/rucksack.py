@@ -1,8 +1,7 @@
 class Rucksack:
-
     def __init__(self, items: str):
-        self.first_compartment = items[:len(items)//2]
-        self.second_compartment = items[len(items)//2:]
+        self.first_compartment = items[: len(items) // 2]
+        self.second_compartment = items[len(items) // 2 :]
 
     @property
     def first_compartment(self) -> str:
@@ -19,3 +18,6 @@ class Rucksack:
     @second_compartment.setter
     def second_compartment(self, value: str):
         self._second_compartment = value
+
+    def find_duplicate(self) -> str:
+        return set(self.first_compartment).intersection(self.second_compartment).pop()
