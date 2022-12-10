@@ -54,3 +54,10 @@ class RockPaperScissors:
         strategy_guide_lines = self.strategy_guide.splitlines()
 
         return sum(map(self._score_by_round, strategy_guide_lines))
+
+
+if __name__ == "__main__":
+    with open("input.txt", "r") as file:
+        input_text = file.read()
+        my_game = RockPaperScissors(input_text)
+        print("The total score is", my_game.total_score(), "points.")
