@@ -21,3 +21,9 @@ class Rucksack:
 
     def find_duplicate(self) -> str:
         return set(self.first_compartment).intersection(self.second_compartment).pop()
+
+    def get_priority(self) -> int:
+        duplicate = self.find_duplicate()
+        if ord("a") <= ord(duplicate) <= ord("z"):
+            return ord(duplicate) - ord("a") + 1
+        return ord(duplicate) - ord("A") + 27
