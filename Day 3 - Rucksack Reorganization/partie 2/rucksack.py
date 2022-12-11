@@ -70,3 +70,4 @@ if __name__ == "__main__":
         input_text = file.read()
         my_rucksack_manager = RucksackManager(input_text)
         print(f"The total priority is {my_rucksack_manager.get_total_priority()}.")
+        print(f"The total priority of the badges is {my_rucksack_manager.get_badges_priority()}.")
