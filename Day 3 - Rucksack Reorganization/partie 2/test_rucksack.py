@@ -99,3 +99,11 @@ CrZsJsPPZsGzwwsLwLmpwMDw"""
     )
 
     assert my_rucksack_manager.get_groups_badges() == ["r", "Z"]
+
+
+def test_find_badge_of_one_group():
+    group = """vJrwpWtwJgWrhcsFMMfFFhFp
+jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
+PmmdzqPrVvPwwTWBwg"""
+
+    assert RucksackManager._get_group_badge(group) == "r"
