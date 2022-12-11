@@ -45,6 +45,17 @@ class RucksackManager:
         groups = re.findall(r"(?:^.+$\n?){1,3}", self.rucksacks_items, re.MULTILINE)
         return list(map(str.rstrip, groups))
 
+    def get_groups_badges(self) -> list[str]:
+        groups = self.get_groups()
+
+        result = []
+        for group in groups:
+            groups_sets = list(map(set, group.splitlines()))
+            common_item = groups_sets[0].intersection(groups_sets[1]).intersection(groups_sets[2]).pop()
+            result.append(common_item)
+
+        return result
+
 
 if __name__ == "__main__":
     with open("../input.txt", "r") as file:

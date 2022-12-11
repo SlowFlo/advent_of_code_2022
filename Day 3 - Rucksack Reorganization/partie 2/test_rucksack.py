@@ -86,3 +86,16 @@ PmmdzqPrVvPwwTWBwg""",
 ttgJtRGJQctTZtZT
 CrZsJsPPZsGzwwsLwLmpwMDw""",
     ]
+
+
+def test_find_groups_badges():
+    my_rucksack_manager = RucksackManager(
+        """vJrwpWtwJgWrhcsFMMfFFhFp
+jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
+PmmdzqPrVvPwwTWBwg
+wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
+ttgJtRGJQctTZtZT
+CrZsJsPPZsGzwwsLwLmpwMDw"""
+    )
+
+    assert my_rucksack_manager.get_groups_badges() == ["r", "Z"]
