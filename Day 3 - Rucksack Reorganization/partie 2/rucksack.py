@@ -25,11 +25,15 @@ class Rucksack:
     def find_duplicate(self) -> str:
         return set(self.first_compartment).intersection(self.second_compartment).pop()
 
+    @staticmethod
+    def calculate_pririty(item: str) -> int:
+        if ord("a") <= ord(item) <= ord("z"):
+            return ord(item) - ord("a") + 1
+        return ord(item) - ord("A") + 27
+
     def get_priority(self) -> int:
         duplicate = self.find_duplicate()
-        if ord("a") <= ord(duplicate) <= ord("z"):
-            return ord(duplicate) - ord("a") + 1
-        return ord(duplicate) - ord("A") + 27
+        return self.calculate_pririty(duplicate)
 
 
 class RucksackManager:
@@ -54,6 +58,11 @@ class RucksackManager:
         groups = self.get_groups()
 
         return list(map(self._get_group_badge, groups))
+
+    def get_badges_priority(self) -> int:
+        badges = self.get_groups_badges()
+
+        return sum(map(Rucksack.calculate_pririty, badges))
 
 
 if __name__ == "__main__":
