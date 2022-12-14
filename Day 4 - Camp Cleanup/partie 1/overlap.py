@@ -1,12 +1,13 @@
-def get_sections(binome: str) -> dict[str, list[int]]:
-    elves_sections = binome.split(",")
+class Binome:
+    def __init__(self, binome: str):
+        self.generate_sections(binome)
 
-    sections = {}
+    def generate_sections(self, binome: str):
+        elves_sections = binome.split(",")
 
-    first_elf_range = elves_sections[0].split("-")
-    second_elf_range = elves_sections[1].split("-")
+        first_elf_range = elves_sections[0].split("-")
+        second_elf_range = elves_sections[1].split("-")
 
-    sections["first_elf"] = list(range(int(first_elf_range[0]), int(first_elf_range[1]) + 1))
-    sections["second_elf"] = list(range(int(second_elf_range[0]), int(second_elf_range[1]) + 1))
+        self.first_elf = list(range(int(first_elf_range[0]), int(first_elf_range[1]) + 1))
+        self.second_elf = list(range(int(second_elf_range[0]), int(second_elf_range[1]) + 1))
 
-    return sections
