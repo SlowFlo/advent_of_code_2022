@@ -18,3 +18,10 @@ def test_get_each_section():
     assert binome4.first_elf == [84, 85, 86, 87, 88]
     assert binome4.second_elf == [93]
 
+
+def test_is_fully_contained():
+    binome1 = Binome("2-4,6-8")
+    assert binome1.is_fully_contained() is False
+
+    binome2 = Binome("2-8,3-7")
+    assert binome2.is_fully_contained() is True

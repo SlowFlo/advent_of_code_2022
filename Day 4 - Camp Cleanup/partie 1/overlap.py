@@ -1,8 +1,11 @@
 class Binome:
     def __init__(self, binome: str):
-        self.generate_sections(binome)
+        self.first_elf = None
+        self.second_elf = None
 
-    def generate_sections(self, binome: str):
+        self._generate_sections(binome)
+
+    def _generate_sections(self, binome: str):
         elves_sections = binome.split(",")
 
         first_elf_range = elves_sections[0].split("-")
